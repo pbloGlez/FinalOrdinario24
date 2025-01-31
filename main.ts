@@ -5,11 +5,11 @@ import { resolvers } from "./resolvers.ts";
 import { schema } from "./schema.ts";
 import { RestaurantModel } from "./types.ts";
 
-const MONGO_URL = Deno.env.get("MONGO_URL");
+//const MONGO_URL = Deno.env.get("MONGO_URL");
 
-if (!MONGO_URL) {
-  throw new Error("No se ha encontrado la varaible de entorno MONGO_URL");
-}
+//if (!MONGO_URL) {
+//  throw new Error("No se ha encontrado la varaible de entorno MONGO_URL");
+//}
 
 const mongoClient = new MongoClient(MONGO_URL);
 await mongoClient.connect();
