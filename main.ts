@@ -7,9 +7,9 @@ import { RestaurantModel } from "./types.ts";
 
 const MONGO_URL = Deno.env.get("MONGO_URL");
 
-//if (!MONGO_URL) {
-//  throw new Error("No se ha encontrado la varaible de entorno MONGO_URL");
-//}
+if (!MONGO_URL) {
+  throw new Error("No se ha encontrado la varaible de entorno MONGO_URL");
+}
 
 const mongoClient = new MongoClient(MONGO_URL);
 await mongoClient.connect();
@@ -28,3 +28,5 @@ const server = new ApolloServer({
 const { url } = await startStandaloneServer(server, { context: async () => ({ RestaurantCollection })});
 
 console.info(`Server ready at ${url}`);
+
+//he conseguido que funcionen las variables de entorno en Deno Deploy
